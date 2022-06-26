@@ -10,16 +10,19 @@ const TodoList = {
         return {
             tasks: window.tasks,
             newTask: {
-                name: "",
                 active: true
             }
         }
     },
     methods: {
         addTask: function() {
-            this.tasks.push(this.newTask);
-            this.newTask = {};
-            this.newTask.active = true;
+            if(this.newTask.name){
+                this.tasks.push(this.newTask);
+                this.newTask = {};
+                this.newTask.active = true;
+            } else {
+                alert("Todos os campos são obrigatórios!")
+            }
         },
         clearTasks: function() {
             this.tasks = []
