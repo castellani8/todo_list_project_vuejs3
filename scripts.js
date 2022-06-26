@@ -20,8 +20,9 @@ const TodoList = {
                 this.tasks.push(this.newTask);
                 this.newTask = {};
                 this.newTask.active = true;
+                localStorage.setItem("todos", JSON.stringify(this.tasks));
             } else {
-                alert("Todos os campos são obrigatórios!")
+                alert("Todos os campos são obrigatórios!");
             }
         },
         clearTasks: function() {
